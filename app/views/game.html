@@ -2,11 +2,11 @@
   <h1>Playing Battleship</h1>
 
   <!-- player 1 boards, only shown when its player 1 turn -->
-  <div ng-if="vm.game.turn === 0">
+  <div ng-if="vm.game.turn === 0" class="animate-if">
     <h3>Player: {{vm.p1.name}}</h3>
 
     <table>
-      <caption>Ships table</caption>
+      <caption>Ships Board</caption>
       <thead>
         <tr>
           <th>0</th>
@@ -41,7 +41,7 @@
     </table>
 
     <table>
-      <caption>Shots table</caption>
+      <caption>Shots Board</caption>
       <thead>
         <tr>
           <th>0</th>
@@ -77,11 +77,11 @@
 
 
   <!-- player 2 boards, only shown when its player 2 turn -->
-  <div ng-if="vm.game.turn === 1">
+  <div ng-if="vm.game.turn === 1" class="animate-if">
     <h3>Player: {{vm.p2.name}}</h3>
 
     <table>
-      <caption>Ships table</caption>
+      <caption>Ships Board</caption>
       <thead>
         <tr>
           <th>0</th>
@@ -116,7 +116,7 @@
     </table>
 
     <table>
-      <caption>Shots table</caption>
+      <caption>Shots Board</caption>
       <thead>
         <tr>
           <th>0</th>
