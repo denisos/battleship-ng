@@ -17,10 +17,14 @@ angular.module('battleshipApp')
   function MainCtrl($scope, $location, GameService) {
     var vm = this; 
 
+    // reset game
+    GameService.reset();
+
     // public data
     vm.game = GameService.game;
     vm.count = 0;
-    vm.player = createDefaultPlayer();
+
+    vm.player = createDefaultPlayer();  // to-do: remove when done
 
     // public api
     vm.hasMorePlayers = hasMorePlayers;
@@ -30,7 +34,7 @@ angular.module('battleshipApp')
     // private functions
     function hasMorePlayers() {
         return vm.count < GameService.game.numPlayers;
-      }
+    }
 
     function nextPlayer() {
         if (! isPlayerValid(vm.player)) {
@@ -61,8 +65,6 @@ angular.module('battleshipApp')
 
     // start the game proper and go to the game page
     function playGame() {
-        GameService.startGame();
-
         $location.path('/game');
     }
 

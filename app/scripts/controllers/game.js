@@ -19,16 +19,18 @@ angular.module('battleshipApp')
     var player1 = GameService.game.players[0];
     var player2 = GameService.game.players[1];
 
-    vm.p1 = {name: player1.name};
-    vm.p2 = {name: player2.name};
+    // view model data
+    vm.p1 = {name: player1.name,
+             shipBoard: player1.getShipBoard(),
+             shotBoard: player1.getShotBoard()};
+
+    vm.p2 = {name: player2.name,
+             shipBoard: player2.getShipBoard(),
+             shotBoard: player2.getShotBoard()};
 
     vm.game = GameService.game;
     
-    vm.p1.shipBoard = player1.getShipBoard();
-    vm.p1.shotBoard = player1.getShotBoard();
-
-
-    // api
+    // public api
     vm.fire = fire;
 
     function fire(row, col) {

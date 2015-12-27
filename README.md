@@ -16,3 +16,10 @@ Run `grunt` for building and `grunt serve` for preview.
 ## Testing
 
 Running `grunt test` will run the unit tests with karma.
+
+## to-dos
+* Add timer delay when switching between players 1 and 2 on page 1 and 2
+* Add support for different ship sizes
+* Add Ship object
+* Improve calculation for when all ships sunk
+* Create one or two directives to display ship and shot boards

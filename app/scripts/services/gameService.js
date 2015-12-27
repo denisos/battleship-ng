@@ -38,8 +38,8 @@ angular.module('battleshipApp')
     // @param {object} shot {x:1, y:2} coordinates
     this.shoot = function(shot) {
         // shoot at shootee
-        var shootee = this.getShootee(),
-            shooter = this.getShooter(),
+        var shootee = getShootee.call(this),
+            shooter = getShooter.call(this),
             result;
 
         result = shootee.receiveShot(shot);
@@ -54,7 +54,8 @@ angular.module('battleshipApp')
             alert("Winner", shooter.name);
         }
 
-//        this.changeTurn();
+        // change turn to the other player
+        this.changeTurn();
 
         return result;
     }
@@ -63,23 +64,27 @@ angular.module('battleshipApp')
         this.game.turn = this.game.turn === 1 ? 0 : 1;
     }
 
-    // initialize and prepare player boards
-    this.startGame = function() {
+    // reset game
+    this.reset = function() {
+        this.game.players = [];
         this.game.turn = 0;
- //       this.game.players = [];
     }
 
+
+
     // shooter is the player whose turn it is
-    this.getShooter = function() {
+    function getShooter() {
         return this.game.players[this.game.turn];
     }
 
     // shootee is not the player whose turn it is
-    this.getShootee = function() {
+    function getShootee() {
         var turn = this.game.turn === 1 ? 0 : 1;
 
         return this.game.players[turn];
     }
+
+
   }
 
 })();

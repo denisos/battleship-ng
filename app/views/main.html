@@ -8,14 +8,17 @@
         <label>Player name:
           <input type="text" ng-model="vm.player.name" class="form-control">
         </label>
-        <br>
-        <p>Please enter 6 digits comma separated. Two digits per x & y coordinate e.g. "0,2" for first ship position.</p>
+        </br>
+        </br>
 
         <label>Player ships positions:
           <input type="text" ng-model="vm.player.shipPositions" class="form-control" placeholder="0,1,1,2,2,4">
         </label>
 
-        <p class="error" ng-if="vm.error">The name is missing or positions are not "x,y,z". Please correct and hit Next Player</p>
+        </br>
+        <p>Ship Positions: please enter 6 digits comma separated. Two digits per x & y coordinate e.g. "0,2" for first ship position e.g. 0,1,1,2,2,4 for 3 ships (vertical only, 2 units long for now)</p>
+
+        <p class="error" ng-if="vm.error">The name is missing or positions are not "x,y". Please correct and hit Next Player</p>
     </form>
 
     <br>
