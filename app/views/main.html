@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Starting Battleship</h1>
+
+  <div ng-if="vm.hasMorePlayers()">
+    <p>Each player has 3 ships. All same size. Each player will enter their name and their ships coordinates</p>
+
+    <form>
+        <label>Player name:
+          <input type="text" ng-model="vm.player.name" class="form-control">
+        </label>
+        <br>
+        <p>Please enter 6 digits comma separated. Two digits per x & y coordinate e.g. "0,2" for first ship position.</p>
+
+        <label>Player ships positions:
+          <input type="text" ng-model="vm.player.shipPositions" class="form-control" placeholder="0,1,1,2,2,4">
+        </label>
+
+        <p class="error" ng-if="vm.error">The name is missing or positions are not "x,y,z". Please correct and hit Next Player</p>
+    </form>
+
+    <br>
+    <button ng-click="vm.nextPlayer()" class="btn">Add Player</button>
+    
+  </div>
+
+  <button ng-click="vm.playGame()" ng-if="! vm.hasMorePlayers()" class="btn">Lets Play Battleship!</button>
+
+</div>

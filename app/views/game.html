@@ -1,0 +1,80 @@
+<div class="container">
+  <h1>Playing Battleship</h1>
+
+
+
+  <div>
+    <h3>Player {{vm.p1.name}}</h3>
+
+    <table>
+      <caption>Ships table</caption>
+      <thead>
+        <tr>
+          <th>0</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+          <th>8</th>
+          <th>9</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr ng-repeat="row in vm.p1.shipBoard">
+          <!-- for some reason col in rows not working need to fix later -->
+          <td>{{row[0]}}</td>
+          <td>{{row[1]}}</td>
+          <td>{{row[2]}}</td>
+          <td>{{row[3]}}</td>
+          <td>{{row[4]}}</td>
+          <td>{{row[5]}}</td>
+          <td>{{row[6]}}</td>
+          <td>{{row[7]}}</td>
+          <td>{{row[8]}}</td>
+          <td>{{row[9]}}</td>
+       
+        </tr>
+      </tbody>
+    </table>
+
+    <table>
+      <caption>Shots table</caption>
+      <thead>
+        <tr>
+          <th>0</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+          <th>8</th>
+          <th>9</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr ng-repeat="row in vm.p1.shotBoard">
+          <!-- for some reason col in rows not working need to fix later -->
+          <td class="fire" ng-click="vm.fire($index,0)">{{row[0]}}</td>
+          <td class="fire" ng-click="vm.fire($index,1)">{{row[1]}}</td>
+          <td class="fire" ng-click="vm.fire($index,2)">{{row[2]}}</td>
+          <td class="fire" ng-click="vm.fire($index,3)">{{row[3]}}</td>
+          <td class="fire" ng-click="vm.fire($index,4)">{{row[4]}}</td>
+          <td class="fire" ng-click="vm.fire($index,5)">{{row[5]}}</td>
+          <td class="fire" ng-click="vm.fire($index,6)">{{row[6]}}</td>
+          <td class="fire" ng-click="vm.fire($index,7)">{{row[7]}}</td>
+          <td class="fire" ng-click="vm.fire($index,8)">{{row[8]}}</td>
+          <td class="fire" ng-click="vm.fire($index,9)">{{row[9]}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
