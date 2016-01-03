@@ -21,11 +21,12 @@ angular.module('battleshipApp')
     this.game.numShips = 3;
     this.game.players = [];
     this.game.turn = 0;
+    this.game.boardSize = 10;  // size of grid, 10x10 default
 
     // add a player and their ships to the game
     this.addPlayer = function(player) {
         // make new player
-        var newPlayer = new Player(player.name, player.shipPositions);
+        var newPlayer = new Player(player.name, player.shipPositions, this.game.boardSize);
 
         this.game.players.push(newPlayer);
     }
@@ -35,13 +36,20 @@ angular.module('battleshipApp')
         return true;
     }
 
-    // @param {object} shot {x:1, y:2} coordinates
+    /*
+     * handle a shooter firing at a shootee (one player shooting at the other)
+     * once shot is fired then change whose turn it is
+     *
+     * @param {object} shot {x:1, y:2} coordinates
+     * @return {object} shot object passed in but modified to indicate if shot is hit or miss
+     */
     this.shoot = function(shot) {
         // shoot at shootee
-        var shootee = getShootee.call(this),
-            shooter = getShooter.call(this),
+        var shootee = this.getShootee(),
+            shooter = this.getShooter(),
             result;
 
+        // fire the shot at the other player (shootee)
         result = shootee.receiveShot(shot);
 
         // shooter records result
@@ -73,12 +81,12 @@ angular.module('battleshipApp')
 
 
     // shooter is the player whose turn it is
-    function getShooter() {
+    this.getShooter = function() {
         return this.game.players[this.game.turn];
     }
 
     // shootee is not the player whose turn it is
-    function getShootee() {
+    this.getShootee = function() {
         var turn = this.game.turn === 1 ? 0 : 1;
 
         return this.game.players[turn];

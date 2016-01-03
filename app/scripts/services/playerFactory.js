@@ -23,7 +23,7 @@ angular.module('battleshipApp')
 
     function Player(GameBoard) { 
 
-        var Player = function(name, shipPositions) {
+        var Player = function(name, shipPositions, boardSize) {
             var _this = this,
                 positions = shipPositions.split(',');
 
@@ -31,8 +31,8 @@ angular.module('battleshipApp')
             this.shipPositions = shipPositions;
 
             // each player has 2 boards
-            this.shipBoard = new GameBoard();  // my ships and their shots
-            this.shotBoard = new GameBoard();  // shots I made
+            this.shipBoard = new GameBoard(boardSize);  // my ships and their shots
+            this.shotBoard = new GameBoard(boardSize);  // shots I made
 
 
             // plot the ships
@@ -40,19 +40,20 @@ angular.module('battleshipApp')
                 var x = parseInt(positions[i], 10);
                 var y = parseInt(positions[i+1], 10);
 
+                // to-do: add a ship type instead of hardcding ship object here
                 _this.shipBoard.plotShip({x:x, y:y, width: 1, length: 2, type: 'basic'});
             }       
         };
 
         // handle a shot from an opponent
         // @param {object} shot  {x:0, y:1}   
-        // @return {object} shot {x:0, y:1, type:'Hit/Miss/Dup'} 
+        // @return {object} shot {x:0, y:1, type:'Hit/Miss'} 
         Player.prototype.receiveShot = function(shot) {
             return this.shipBoard.receiveShot(shot);
         }
 
         // record result of a shot you made
-        // @param {object} shot  {x:0, y:1, type:'H/M/D'}   ()
+        // @param {object} shot  {x:0, y:1, type:'H/M'}   ()
         Player.prototype.recordShot = function(shot) {
           return this.shotBoard.recordShot(shot);
         }

@@ -22,15 +22,15 @@ angular.module('battleshipApp')
         this.ships = 0;
         this.shipHits = 0;
 
-        // create empty board to start
-        this.board = new Array(this.width);
+        this.board = [];
         for (var i=0; i < this.width; i++) {
-            this.board[i] = new Array(this.height);
+            this.board[i] = [];
 
             for (var j=0; j < this.height; j++) {
                 this.board[i][j] = '_';
             }
         }
+
     };
 
     // plot ship on the matrix

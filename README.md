@@ -23,8 +23,10 @@ Run `grunt` for building and `grunt serve` for preview.
 Running `grunt test` will run the unit tests with karma.
 
 ## to-dos
-* Add timer delay when switching between players 1 and 2 on page 1 and 2
+* Add animation delay when switching between players 1 and 2 on page 1 and 2
+* Hide ship board by default, but allow show on click
+* Improve way to report winner
+* Create one or two directives to display ship and shot boards
 * Add support for different ship sizes
 * Add Ship object
 * Improve calculation for when all ships sunk
-* Create one or two directives to display ship and shot boards
