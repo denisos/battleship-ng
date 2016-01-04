@@ -10,7 +10,8 @@ To play:
 * each player has 2 boards, 1 for ships, the other to record their shots
 * to shoot click a cell on the Shots Board
 * then the other player clicks on their Shots Board
-* and you go back and forth (note: the player whose turn it is has a green highlight around their shots table)
+* and you go back and forth 
+* (note: the player whose turn it is has a green highlight around their shots table)
 
 
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
@@ -25,8 +26,8 @@ Run `grunt` for building and `grunt serve` for preview.
 Running `grunt test` will run the unit tests with karma.
 
 ## to-dos
-* Improve how to report winner
 * Create one (or two) directives to display ship and shot boards
+* Improve how to report winner
 * Add support for different ship sizes
 * Add Ship object
 * Improve calculation for when all ships sunk (based on ship sizes)
